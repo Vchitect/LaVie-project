@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LaVie: Learning to Synthesize High-Definition Videos from Text Descriptions">
+  <meta name="keywords" content="LaVie">
+<!--  <meta name="viewport" content="width=device-width, initial-scale=2">-->
+  <meta name="viewport" content="width=device-width">
+  <title>LaVie: Learning to Synthesize High-Definition Videos from Text Descriptions</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9VZKE74FPW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<style>
+  body {
+    max-width: 2400px;
+    margin: 0 auto;
+  }
+</style>
+
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+<!--    <div class="container is-max-desktop">-->
+      <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LaVie: Learning to Synthesize High-Definition Videos <br> from Text Descriptions</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Yaohui Wang</a><sup>1*</sup>,</span>
+              <span class="author-block">
+              <a href="">Xinyuan Chen</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Xin Ma</a><sup>1,4*&dagger;</sup>,</span>
+              <span class="author-block">
+              <a href="">Shangchen Zhou</a><sup>2</sup>,</span>
+              <span class="author-block">
+              <a href="">Ziqi Huang</a><sup>2</sup>,</span>
+              <span class="author-block">
+              <a href="">Ceyuan Yang</a><sup>1</sup>,</span>
+              <span class="author-block">
+              <a href="">Yinan He</a><sup>1</sup>,</span>
+              <span class="author-block">
+              <a href="">Jiashuo Yu</a><sup>1</sup>,</span>
+              <span class="author-block">
+              <a href="">Yi Wang</a><sup>1</sup>,</span>
+              <span class="author-block">
+              <a href="">Chenyang Si</a><sup>2</sup>,</span>
+              <span class="author-block">
+              <a href="">Yuwei Guo</a><sup>1,3</sup>,</span>
+              <span class="author-block">
+              <a href="">Peiqing Yang</a><sup>2</sup>,</span>
+              <span class="author-block">
+              <a href="">Tianxing Zhou</a><sup>2</sup>,</span>
+              <span class="author-block">
+              <a href="">Cunjian Chen</a><sup>4</sup>,</span>
+              <span class="author-block">
+              <a href="">Chen Change Loy</a><sup>2</sup>,</span>
+              <span class="author-block">
+              <a href="">Bo Dai</a><sup>1</sup>,</span>
+              <span class="author-block">
+              <a href="">Dahua Lin</a><sup>1,3</sup>,</span>
+              <span class="author-block">
+              <a href="">Yu Qiao</a><sup>1</sup>,</span>
+              <span class="author-block">
+              <a href="">Ziwei Liu</a><sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Artificial Intelligence Laboratory&nbsp</span>
+              <span class="author-block"><sup>2</sup>S-Lab, Nanyang Technological University&nbsp</span>
+              <span class="author-block"><sup>3</sup>The Chinese University of Hong Kong&nbsp</span>
+            <span class="author-block"><sup>4</sup>Monash University</span>
+          </div>
+
+            <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+          </div>
+
+            <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>&dagger;</sup>Work done during internship at Shanghai AI Laboratory</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+<center>
+        <video width="520" height="300" autoplay controls><source src="static/teaser.mp4" type="video/mp4"></video>
+        <div class="content" style="font-family: Geneva">
+            Text-to-video Generation
+        </div>
+</center>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-width">
+      <div id="results-carousel" class="carousel results-carousel">
+
+          <!-- 1 column-->
+          <div class="column is-multiline">
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/12.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/12.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  Cinematic shot of Van Gogh's selfie, Van Gogh style
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/2.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/2.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A corgi’s head depicted as an explosion of a nebula, high quality
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/7.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/7.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A panda drinking coffee in a cafe in Paris
+              </div>
+
+          </div>
+
+          <!-- 2 column-->
+          <div class="column is-multiline">
+
+               <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/14.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/14.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  Iron Man flying in the sky
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/5.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/5.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A jellyfish floating through the ocean, with bioluminescent tentacles
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/6.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/6.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A Mars rover moving on Mars
+              </div>
+          </div>
+
+          <!-- 3 column-->
+          <div class="column is-multiline">
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/15.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/15.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  The bund Shanghai, oil painting
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/3.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/3.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A fantasy landscape, trending on artstation, 4k, high resolution
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/8.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/8.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A space shuttle launching into orbit, with flames and smoke billowing out from the engines
+              </div>
+
+          </div>
+
+          <!-- 4 column-->
+          <div class="column is-multiline ">
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/10.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/10.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A super cool giant robot in Cyberpunk Beijing, artstation
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/11.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/11.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A tropical beach at sunrise, with palm trees and crystal-clear water in the foreground
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/1.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A boat sailing leisurely along the Seine River with the Eiffel Tower in background by Vincent van Gogh
+              </div>
+
+          </div>
+
+          <!-- 5 column-->
+          <div class="column is-multiline">
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/13.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/13.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  Gwen Stacy reading a book
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/4.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/4.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A future where humans have achieved teleportation technology
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/9.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/9.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A steam train moving on a mountainside by Vincent van Gogh
+              </div>
+
+          </div>
+
+          <!-- 6 column-->
+          <div class="column is-multiline">
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/16.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/16.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  Yoda playing guitar on the stage
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/17.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/17.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A beautiful coastal beach in spring, waves lapping on sand by Hokusai, in the style of Ukiyo
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/27.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/27.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A happy fuzzy panda playing guitar nearby a campfire, snow mountain in the background
+              </div>
+          </div>
+
+          <!-- 6 column-->
+          <div class="column is-multiline">
+
+              <div class="item item-toby">
+              <video width="450" height="300" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/21-2.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A cat eating food out of a bowl, in style of Van Gogh
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/19.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/19.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  A boat sailing leisurely along the Seine River with the Eiffel Tower in background by Vincent van Gogh
+
+              </div>
+
+              <div class="item item-toby">
+              <video width="450" height="300" poster="static/videos/46.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/46.mp4" type="video/mp4"></video>
+              </div>
+              <div class="content" style="font-family: Arial; font-style: italic">
+                  Vincent van Gogh is painting in the room
+              </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-fullhd">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+              We present LaVie, an innovative system for text-to-video (T2V) generation that operates on the foundation of a cascade of video latent diffusion models. Comprising three networks, namely a base T2V model, a temporal interpolation model, and a video super-resolution model, LaVie aims to address research question of extending a pre-trained text-to-image (T2I) model into realm of video synthesis. Our objective is to accomplish the synthesis of visually realistic and temporally coherent videos while preserving the strong compositional nature of the model. We found that the incorporation of simple temporal self-attentions, coupled with relative positional encoding, adequately captures the temporal correlations inherent in video data. Additionally, we validate that the process of joint image-video fine-tuning plays a pivotal role in producing high-quality outcomes. To enhance the performance of LaVie, we curate a comprehensive and diverse video dataset named Vimeo25M, consisting of 25 million text-video pairs that prioritize quality, diversity, and aesthetic appeal. Experimental evaluations demonstrate that LaVie outperforms state-of-the-art in terms of quantitative and qualitative assessments. Furthermore, we showcase the versatility of pre-trained LaVie models in long video generation and personalized video synthesis applications.
+          </p>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<!--<section class="section">-->
+<!--      &lt;!&ndash; line 1&ndash;&gt;-->
+<!--      <div class="columns is-fluid">-->
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/1.mp4" type="video/mp4"></video>-->
+<!--              <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                A boat sailing leisurely along the Seine River with the Eiffel Tower in background by Vincent van Gogh-->
+<!--              </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/2.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/2.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A corgi’s head depicted as an explosion of a nebula, high quality-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/3.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/3.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A fantasy landscape, trending on artstation, 4k, high resolution-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/5.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/5.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A jellyfish floating through the ocean, with bioluminescent tentacles-->
+<!--                      </div>-->
+<!--          </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; line 2&ndash;&gt;-->
+<!--      <div class="columns is-fluid">-->
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/4.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/4.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A future where humans have achieved teleportation technology-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/6.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/6.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A Mars rover moving on Mars-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/7.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/7.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A panda drinking coffee in a cafe in Paris-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/8.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/8.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A space shuttle launching into orbit, with flames and smoke billowing out from the engines-->
+<!--                      </div>-->
+<!--          </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; line 3&ndash;&gt;-->
+<!--      <div class="columns is-fluid">-->
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/9.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/9.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A steam train moving on a mountainside by Vincent van Gogh-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/10.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/10.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A super cool giant robot in Cyberpunk Beijing, artstation-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/11.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/11.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        A tropical beach at sunrise, with palm trees and crystal-clear water in the foreground-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/12.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/12.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        Cinematic shot of Van Gogh's selfie, Van Gogh style-->
+<!--                      </div>-->
+<!--          </div>-->
+<!--      </div>-->
+
+<!--          &lt;!&ndash; line 3&ndash;&gt;-->
+<!--      <div class="columns is-fluid">-->
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/13.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/13.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        Gwen Stacy reading a book-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/14.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/14.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        Iron Man flying in the sky-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/15.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/15.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        The bund Shanghai, oil painting-->
+<!--                      </div>-->
+<!--          </div>-->
+
+<!--          <div class="column is-one-quarter">-->
+<!--              <video width="450" height="300" poster="static/videos/16.jpg" onmouseover="this.play()" onmouseout="this.pause()" autoplay loop><source src="static/videos/16.mp4" type="video/mp4"></video>-->
+<!--                      <div class="content" style="font-family: Arial; font-style: italic">-->
+<!--                        Yoda playing guitar on the stage-->
+<!--                      </div>-->
+<!--          </div>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website adapted from the following <a rel="license"
+                                                href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
